@@ -1,0 +1,7 @@
+C:\Users\mafer\Desktop\Ex_final\Ex_final\bin\Debug\Ex_final.exe.config
+C:\Users\mafer\Desktop\Ex_final\Ex_final\bin\Debug\Ex_final.exe
+C:\Users\mafer\Desktop\Ex_final\Ex_final\bin\Debug\Ex_final.pdb
+C:\Users\mafer\Desktop\Ex_final\Ex_final\obj\Debug\Ex_final.csprojAssemblyReference.cache
+C:\Users\mafer\Desktop\Ex_final\Ex_final\obj\Debug\Ex_final.csproj.CoreCompileInputs.cache
+C:\Users\mafer\Desktop\Ex_final\Ex_final\obj\Debug\Ex_final.exe
+C:\Users\mafer\Desktop\Ex_final\Ex_final\obj\Debug\Ex_final.pdb

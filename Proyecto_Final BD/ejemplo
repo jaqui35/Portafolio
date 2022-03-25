@@ -1,0 +1,68 @@
+create database prueba;
+
+create table clientes(
+ id_cliente int(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ nombre varchar(100),
+ seccion varchar(20),
+ accion varchar(10) default 'Insertado'
+);
+
+create table auditoria_clientes(
+	id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	nombreant varchar(100) NOT NULL,
+	seccionant varchar(20) NOT NULL,
+	nombren varchar(100) NOT NULL,
+	seccionn varchar(20) NOT NULL,
+	usuario varchar(40) NOT NULL,
+	modificado date,
+	proceso varchar(10) NOT NULL,
+	id_cliente int(4) NOT NULL, FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+);
+
+
+trigger para insertar
+create trigger insertar_auditoria_clientes after insert on clientes for each row
+	insert into auditoria_clientes(nombren, seccionn,usuario,modificado,proceso,id_cliente)
+		values (new.nombre, new.seccion, current_user(), now(), new.accion, new.id_cliente);
+
+
+insert into clientes (nombre,seccion) values ('Miguel','informatica'),;
+insert into clientes (nombre,seccion) values ('Rosa', 'comida');
+insert into clientes (nombre,seccion) values ('Maria', 'ropa');
+insert into clientes (nombre,seccion) values ('Albert', 'informatica');
+insert into clientes (nombre,seccion) values ('Paco', 'comida');
+
+trigger para modificar.
+create trigger auditoria_clientes before update on clientes
+	for each row insert into auditoria_clientes(nombreant,seccionant,nombren,seccionn,usuario,modificado,id_cliente)
+	values (old.nombre, old.seccion, new.nombre, new.seccion, current_user(), now(), new.id_cliente);
+
+
+trigger para insertar.
+
+insert into productos (codigo,nommbre,porgana,Costo,Valorventa,cantidad) values('1','arroz 1 kilo',15,1800,0,45);
+
+create table brands(
+ ID int(4) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+ Nombre varchar(20),
+ Segmento varchar(20)
+);
+
+
+create table integracion(
+	ID int(4) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	Objeto varchar(20),
+	Objeto_ID int(5),
+	Accion varchar(20),
+	Fecha_creacion date,
+	Procesado varchar(20),
+	Fecha_procesado date,
+	Recuento_errores varchar(20)
+);
+
+create table eliminacion(
+	ID int(4) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	Objeto varchar(10),
+	Segmento varchar(10),
+    Fecha_eliminacion date
+);
